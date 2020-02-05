@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Disconnected!"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textAlignment="center"
+        android:layout_marginLeft="120.3dp"
+        android:layout_marginRight="18.9dp" />
+    <Button
+        android:text="Connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1" />
+    <Button
+        android:text="Disconnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textAlignment="center"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp" />
+    <Button
+        android:text="MOTOR 1"
+        android:layout_width="384.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3" />
+    <Button
+        android:text="MOTOR 2"
+        android:layout_width="385.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4" />
+    <Button
+        android:text="MOTOR 3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button5" />
+    <Button
+        android:text="MOTOR 4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6" />
+    <Button
+        android:text="MOTOR 5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button7" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp" />
+    <TextView
+        android:text="Change Directions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textSize="18dp"
+        android:layout_marginLeft="0.0dp"
+        android:textAlignment="center"
+        android:textDirection="locale" />
+    <Button
+        android:text="FORWARD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8" />
+    <Button
+        android:text="BACKWARDS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9" />
+</LinearLayout>
