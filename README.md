@@ -2,5 +2,5 @@
 This repository contains code for the Android app and Arduino to control a robot arm.
 
 ## Files
-- Arduino
-- Android 
+- AndroidApp
+- Arduino 
