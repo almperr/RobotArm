@@ -1,7 +1,11 @@
 /*
  Name:		RobotArm_ECET499_Lab10.ino
  Created:	4/20/2018 4:00:03 PM
- Author:	zssnyder
+ Author:	Zach Snyder and Alex Perr
+ Purpose: This is used to program an Arduino to receive data from a Bluetooth receiver module and then activate different drive
+ modules based on the input received. Inputs are from the Android phone, which is connected to the Bluetooth receiver. These 
+ drive modules are connected to the different motors in the robot arm which drive the claw, the wrist, the elbow, and shoulder 
+ of the arm.  
 */
 
 
