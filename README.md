@@ -3,6 +3,8 @@ This repository contains code for the Android app and Arduino used to control th
 
 ## Hardware setup
 
+<img src="images/setup.PNG" style="width:100%">
+<img src="images/setup.PNG" style="width:100%">
 
 ## Files
 - AndroidApp
