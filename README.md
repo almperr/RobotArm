@@ -5,8 +5,8 @@ This repository contains code to create a Android Phone Controlled Robot Arm. Th
 <img src="images/rc.PNG" style="width:50%">
 
 ## Files
-- AndroidApp - Contains files used to create the App for the Android Smartphone 
-- Arduino - Contains files used for the Arduino 
+- RobotArm/AndroidApp - Contains files used to create the App for the Android Smartphone 
+- RobotArm/Arduino - Contains files used for the Arduino 
 
 ## Hardware setup
 An Arduino Uno is connected, via pins, to 3 H-Bridge modules (Adafruit TB6612). The H-Bridge modules are then connected to each of the 5 motors. 
