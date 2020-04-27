@@ -1,7 +1,7 @@
 
 # RobotArm
 This repository contains code for the Android app and Arduino used to control the robot arm. This was a lab project for Advanced Object-Oriented Programming, created by Alex Perr and Zach Snyder 
-<img src="images/rc.PNG" style="width:100%">
+<img src="images/rc.PNG" style="width:50%">
 
 ## Hardware setup
 An Arduino Uno is connected, via pins, to 3 H-Bridge modules (Adafruit TB6612). The H-Bridge modules are then connected to each of the 5 motors. 
