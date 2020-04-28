@@ -11,4 +11,4 @@ RobotArm/AndroidApp/MainActivity.cs
   - Logic for direction button press
 
 RobotArm/AndroidApp/Resources
-  - Contains object data from the app design tool in Xamirin 
+  - Contains object data from the app design tool in Xamirin to create the user interface
