@@ -4,5 +4,11 @@ This code is used to create the Android App that controls the Robot Arm via Blue
 
 ## Files and Contents 
 
-RobotArm/AndroidApp/MainActivity.cs - Contains the main logic of the App 
--hello
+RobotArm/AndroidApp/MainActivity.cs 
+-Link objects from resources to variables
+-Logic for Bluetooth connect and disconnect button press 
+-Logic for each motor button presses
+-Logic for direction button press
+
+RobotArm/AndroidApp/Resources
+-Contains object data from the app design tool in Xamirin 
