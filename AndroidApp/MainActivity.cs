@@ -10,22 +10,23 @@ using System;
 using Android.Bluetooth;
 using System.Linq;
 
-
 namespace RobotArm_Lab10.Droid
 {
     [Activity(Label = "RobotArm_Lab10", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
-
+	//initialize Bluetooth
         BluetoothConnection myConnection = new BluetoothConnection();
-        protected override void OnCreate(Bundle savedInstanceState)
+        
+	//Variable declaration, links variables to button object classes created in Xamirin for GUI
+	protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            // Set our view from the "main" layout resource
+            //Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            //Get our buttons from the layout resource,
+            //Get our buttons from the layout resource
             Button buttonConnect = FindViewById<Button>(Resource.Id.button1);
             Button buttonDisconnect = FindViewById<Button>(Resource.Id.button2);
             Button motor1On = FindViewById<Button>(Resource.Id.button3);
@@ -39,18 +40,20 @@ namespace RobotArm_Lab10.Droid
             TextView connected = FindViewById<TextView>(Resource.Id.textView1);
 
             BluetoothSocket _socket = null;
-
+	    
+	    //action for if Bluetooth connect button is pressed
             buttonConnect.Click += delegate
             {
                 /* Call BluetoothConnection class methods and start the discovery of
                 Bluetooth devices.
                 For this to work when running, Phone must already be paired with
-                Bluetooth module HC-05…see lab instructions for this step.*/
+                Bluetooth module HC-05…*/
 
                 myConnection = new BluetoothConnection();
                 myConnection.getAdapter();
                 myConnection.thisAdapter.StartDiscovery();
-
+		
+		//search for Bluetooth
                 try
                 {
                     myConnection.getDevice();
@@ -59,11 +62,14 @@ namespace RobotArm_Lab10.Droid
                     myConnection.thisDevice.SetPairingConfirmation(true);
                     myConnection.thisDevice.CreateBond();
                 }
+		
+		//could put "searching" text here
                 catch (Exception deviceEX)
                 {
                     // Can add message lateron
                 }
-
+		
+		//if no Bluetooth found, cancel discovery
                 myConnection.thisAdapter.CancelDiscovery();
 
                 _socket = myConnection.thisDevice.CreateInsecureRfcommSocketToServiceRecord(Java.Util.UUID.FromString("00001101-0000-1000-8000-00805f9b34fb"));
