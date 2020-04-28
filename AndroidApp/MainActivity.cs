@@ -1,4 +1,9 @@
-﻿using Android.App;
+﻿//Names: Alexander Perr and Zach Snyder
+//Class: ECET 499
+//Date: 4/30/2018
+//Discription: This program sends characters via Bluetooth corresponding with each of the buttons to the Arduino. 
+
+using Android.App;
 using Android.Widget;
 using Android.OS;
 using System;
