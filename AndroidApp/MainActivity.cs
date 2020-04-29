@@ -18,7 +18,7 @@ namespace RobotArm_Lab10.Droid
 	//initialize Bluetooth
         BluetoothConnection myConnection = new BluetoothConnection();
         
-	//Variable declaration, links variables to button object classes created in Xamirin for GUI
+	//Variable declaration, links variables to button object classes created in Xamirin for the GUI
 	protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -41,7 +41,7 @@ namespace RobotArm_Lab10.Droid
 
             BluetoothSocket _socket = null;
 	    
-	    //action for if Bluetooth connect button is pressed
+	    //action if Bluetooth connect button is pressed
             buttonConnect.Click += delegate
             {
                 /* Call BluetoothConnection class methods and start the discovery of
@@ -63,18 +63,13 @@ namespace RobotArm_Lab10.Droid
                     myConnection.thisDevice.CreateBond();
                 }
 		
-		//could put "searching" text here
+		//will repeat try statement until connected or timeout could put "searching" text here. 
                 catch (Exception deviceEX)
                 {
                     // Can add message lateron
                 }
 		
-		//if no Bluetooth found, cancel discovery
-                myConnection.thisAdapter.CancelDiscovery();
-
-                _socket = myConnection.thisDevice.CreateInsecureRfcommSocketToServiceRecord(Java.Util.UUID.FromString("00001101-0000-1000-8000-00805f9b34fb"));
-                myConnection.thisSocket = _socket;
-
+		//if pairing successful display "Connected!" and enable disconnect button and disable connect button
                 try
                 {
 
@@ -82,12 +77,19 @@ namespace RobotArm_Lab10.Droid
                     connected.Text = "Connected!";
                     buttonDisconnect.Enabled = true;
                     buttonConnect.Enabled = false;
-
                 }
                 catch (Exception CloseEX)
                 {
                     // ADD MESSAGE LATER
                 }
+		
+		//if no Bluetooth found, cancel discovery
+                myConnection.thisAdapter.CancelDiscovery();
+		
+		//send to error log
+                _socket = myConnection.thisDevice.CreateInsecureRfcommSocketToServiceRecord(Java.Util.UUID.FromString("00001101-0000-1000-8000		-00805f9b34fb"));
+                myConnection.thisSocket = _socket;	
+		
             };
 
             buttonDisconnect.Click += delegate
