@@ -1,5 +1,5 @@
 ﻿//Names: Alexander Perr and Zach Snyder
-//Class: ECET 499
+//Class: ECET 499 Advanced Object-Oriented Programming
 //Date: 4/30/2018
 //Discription: This is C# code that sends integer values to the Arduino via Bluetooth. This creates the GUI, does Bluetooth ops, and logic //behind controls
 
