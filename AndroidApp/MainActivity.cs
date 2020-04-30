@@ -1,7 +1,7 @@
 ﻿//Names: Alexander Perr and Zach Snyder
 //Class: ECET 499
 //Date: 4/30/2018
-//Discription: This program sends characters via Bluetooth corresponding with each of the buttons to the Arduino. 
+//Discription: This is C# code that sends integer values to the Arduino via Bluetooth. This creates the GUI, does Bluetooth ops, and logic //behind controls
 
 using Android.App;
 using Android.Widget;
@@ -62,14 +62,20 @@ namespace RobotArm_Lab10.Droid
                     myConnection.thisDevice.SetPairingConfirmation(true);
                     myConnection.thisDevice.CreateBond();
                 }
-		
-		//will repeat try statement until connected or timeout could put "searching" text here. 
                 catch (Exception deviceEX)
                 {
                     // Can add message lateron
                 }
 		
-		//if pairing successful display "Connected!" and enable disconnect button and disable connect button
+		//Bluetooth found, cancel discovery
+                myConnection.thisAdapter.CancelDiscovery();
+		
+		//assign found device connection information to socket reference variable
+                _socket = myConnection.thisDevice.CreateInsecureRfcommSocketToServiceRecord(Java.Util.UUID.FromString("00001101-0000-1000-8000			-00805f9b34fb"));
+                
+		// connection established, create bonded socket
+		myConnection.thisSocket = _socket;
+
                 try
                 {
 
@@ -83,15 +89,9 @@ namespace RobotArm_Lab10.Droid
                     // ADD MESSAGE LATER
                 }
 		
-		//if no Bluetooth found, cancel discovery
-                myConnection.thisAdapter.CancelDiscovery();
-		
-		//send to error log
-                _socket = myConnection.thisDevice.CreateInsecureRfcommSocketToServiceRecord(Java.Util.UUID.FromString("00001101-0000-1000-8000		-00805f9b34fb"));
-                myConnection.thisSocket = _socket;	
-		
             };
-
+            
+	    // disconnect button pressed, disconnects from HC-05 Bluetooth Module 
             buttonDisconnect.Click += delegate
             {
 
@@ -109,13 +109,14 @@ namespace RobotArm_Lab10.Droid
                 catch { }
 
             };
-
+	    
+	    //controls claw 
             motor1On.Click += delegate
             {
 
                 try
                 {
-                    // Send a 1 from this event.
+                    // Send a 1 from this event to serial output.
                     myConnection.thisSocket.OutputStream.WriteByte(1);
                     myConnection.thisSocket.OutputStream.Close();
                 }
@@ -124,7 +125,8 @@ namespace RobotArm_Lab10.Droid
                 }
 
             };
-
+	    
+	    //controls wrist
             motor2On.Click += delegate
             {
 
@@ -140,7 +142,8 @@ namespace RobotArm_Lab10.Droid
                 }
 
             };
-
+	    
+	    //controls elbow 
             motor3On.Click += delegate
             {
                 try
@@ -154,7 +157,8 @@ namespace RobotArm_Lab10.Droid
                 }
 
             };
-
+	    
+	    //controls shoulder
             motor4On.Click += delegate
             {
                 try
@@ -168,7 +172,8 @@ namespace RobotArm_Lab10.Droid
                 }
 
             };
-
+	    
+            //rotates whole arm
             motor5On.Click += delegate
             {
                 try
@@ -182,7 +187,8 @@ namespace RobotArm_Lab10.Droid
                 }
 
             };
-
+	    
+	    //forward motor direction select button
             Forward.Click += delegate
             {
 
@@ -197,7 +203,8 @@ namespace RobotArm_Lab10.Droid
                 }
 
             };
-
+	    
+	    //backwar motor direction select button
             Backward.Click += delegate
             {
                 try
@@ -210,6 +217,7 @@ namespace RobotArm_Lab10.Droid
                 }
             };
 
+	    //logic for controlling a set of two motors
             (motor5On.Click & motor4On.Click) += delegate
             {
                 try
