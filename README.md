@@ -1,6 +1,6 @@
 
 # RobotArm
-This repository contains code to create a Android Phone Controlled Robot Arm. This was a lab project for Advanced Object-Oriented Programming, created by Alex Perr and Zach Snyder. 
+This repository contains code to create a Android Phone Controlled Robot Arm. This was a lab project for ECET 499 Advanced Object-Oriented Programming, created by Alex Perr and Zach Snyder. 
 
 <img src="images/rc.PNG" style="width:50%">
 
