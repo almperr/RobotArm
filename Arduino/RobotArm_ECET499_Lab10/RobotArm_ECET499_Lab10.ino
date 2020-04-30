@@ -2,22 +2,17 @@
  Name:		RobotArm_ECET499_Lab10.ino
  Created:	4/20/2018 4:00:03 PM
  Author:	Zach Snyder and Alex Perr
- Purpose: This is used to program an Arduino to receive data from a Bluetooth receiver module and then activate different drive
+ Purpose: This is used to program an Arduino to receive data from the HC-05 Bluetooth receiver module and then activate different TB6612 drive
  modules based on the input received. Inputs are from the Android phone, which is connected to the Bluetooth receiver. These 
  drive modules are connected to the different motors in the robot arm which drive the claw, the wrist, the elbow, and shoulder 
  of the arm.  
 */
 
 
-
-
-//motor A connected between A01 and A02
-//motor B connected between B01 and B02
-
 unsigned int ForwardBackward = 0;
-
 unsigned int received = 180;
 
+//set pins
 void setup() {
 	
 	Serial.begin(9600);
@@ -44,10 +39,14 @@ void setup() {
 
 void loop() 
 {
+	//begin logic if serial data from HC-05 Bluetooth module is revceived
 	if (Serial.available())
 	{
+		
+		//read incoming data
 		received = Serial.read();
-
+		
+		//this is connected to an LED light which indicates if the Bluetooth is connected
 		if (received == 187)
 		{
 			Serial.write(received);
@@ -58,6 +57,8 @@ void loop()
 			Serial.println("RESTARTED");
 			digitalWrite(13, HIGH);
 		}
+		
+		//sets the case for direction
 		else if (received == 6)
 		{
 			ForwardBackward = 1;
@@ -66,13 +67,14 @@ void loop()
 		{
 			ForwardBackward = 0;
 		}
-
-
+		
+		//case for forward direction
 		if (ForwardBackward == 1)
 		{
 
 			switch (received)
 			{
+			//checks which button is pressed from button press from phone and sends logic to the motor drive modules 
 			case (1):
 				digitalWrite(2, LOW);
 				digitalWrite(3, HIGH);
@@ -117,6 +119,7 @@ void loop()
 
 		}
 
+		//case for backward direction
 		if (ForwardBackward == 0)
 		{
 			switch (received)
