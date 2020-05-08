@@ -1,6 +1,6 @@
 
 # RobotArm
-This repository contains code to create a Android Phone Controlled Robot Arm. This was a lab project for ECET 499 Advanced Object-Oriented Programming, created by Alex Perr and Zach Snyder. 
+This repository contains code to create a Android Phone Controlled Robot Arm. The user can turn the robot arm 360 in both directions. The user can control the claw, wrist, elbow, and shoulder of this robot arm using a smart phone app. The user connects their Android smart phone to the Bluetooth receiver/transmitter module. Once connected, the user has full control of the arm. This was a lab project for ECET 499 Advanced Object-Oriented Programming, created by Alex Perr and Zach Snyder. 
 
 <img src="images/rc.PNG" style="width:50%">
 
